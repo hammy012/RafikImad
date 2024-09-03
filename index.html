@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" href="./logo.png" />
+    <link href="assets/css/0.1S49Nrdr.css" rel="stylesheet" />
+    <link href="assets/css/2.CFYyWKTW.css" rel="stylesheet" />
+    <title>rafik Imad</title>
+    
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+      * {
+        font-family: "Montserrat", sans-serif;
+        text-decoration: none;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline: none;
+        border: none;
+        background: none;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        width: 100%;
+        height: 100svh;
+        background-color: #200103;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      ::-webkit-scrollbar {
+        width: 2px;
+        height: 3px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #ff7517;
+      }
+
+      .thumbnail,
+      .review,
+      h1,
+      h2,
+      .question,
+      footer a {
+        transform: translateY(1rem);
+        opacity: 0;
+        transition: 0.8s;
+      }
+
+      .thumbnail.show,
+      .review.show,
+      h1.show,
+      h2.show,
+      .question.show,
+      footer.show a {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+      header .logo,
+      header a {
+        transform: translateY(-1rem);
+        transition: 0.5s;
+        opacity: 1;
+      }
+
+      .logo.show,
+      header a.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      footer.show nav a:first-child {
+        transition: 0.8s 0.6s;
+      }
+
+      footer.show nav a:nth-child(2) {
+        transition: 0.8s 0.4s;
+      }
+
+      footer.show nav a:nth-child(3) {
+        transition: 0.8s 0.2s;
+      }
+
+      footer.show nav a:nth-child(4) {
+        transition: 0.8s 0s;
+      }
+      @media (max-width: 700px) {
+        header a {
+          transform: translateY(1rem);
+        }
+        header a.show {
+          transform: translateY(0rem);
+        }
+        header a:first-child {
+          transition: 0.8s 0.4s;
+        }
+
+        header a:nth-child(2) {
+          transition: 0.8s 0.3s;
+        }
+
+        header a:nth-child(3) {
+          transition: 0.8s 0.2s;
+        }
+        header a:nth-child(4) {
+          transition: 0.8s 0.1s;
+        }
+        header a:nth-child(4) {
+          transition: 0.8s 0s;
+        }
+      }
+    </style>
+    <style>
+      .myPTag {
+        width: 60%;
+        text-align: center;
+        margin: auto;
+      }
+      .gifHolder {
+        margin-top: 30px;
+        display: flex;
+        gap: 30px;
+      }
+      .gifImage {
+        width: 600px;
+        border-radius: 20px;
+      }
+      .whySection {
+        display: flex;
+        min-height: 80vh;
+        margin-top: 30px;
+      }
+      .why1 {
+        width: 100%;
+        background: radial-gradient(circle, #200103 0%, #300707 70%);
+        padding: 22px;
+      }
+      .why2 {
+        width: 100%;
+        background-color: white;
+        color: #200103;
+        padding: 22px;
+      }
+      @media screen and (max-width: 700px) {
+        .gifHolder {
+          flex-direction: column;
+        }
+        .gifImage {
+          width: 520px;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .gifImage {
+          width: 350px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .gifImage {
+          width: 320px;
+        }
+      }
+    </style>
+    <style>
+      .questions {
+        width: 100%;
+        margin: auto;
+      }
+
+      .question {
+        border: 1px solid #555;
+        margin: 20px 0;
+        padding: 10px;
+        opacity: 1;
+        color: white;
+        border-radius: 6px;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .icon {
+        font-size: 18px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+        border: 1px solid #555;
+        border-radius: 5px;
+        padding: 2px 8px;
+      }
+
+      .info {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #aaa;
+        padding: 0 0;
+      }
+
+      .question.active .info {
+        max-height: 200px; /* Adjust based on your content height */
+        padding: 10px 0;
+      }
+    </style>
+    <style>
+      @media screen and (max-width: 700px) {
+        .links {
+          display: none; /* Initially hidden */
+          opacity: 0;
+          transform: translateY(-10px);
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .links.active {
+          display: block; /* Shown when active */
+          opacity: 1;
+          transform: translateY(0);
+          margin-top: -0px !important;
+        }
+
+        .burger {
+          cursor: pointer;
+          background: none;
+          border: none;
+          outline: none;
+          padding: 10px;
+        }
+
+        .burger .bar-1,
+        .burger .bar-2 {
+          width: 25px;
+          height: 3px;
+          background-color: #333;
+          margin: 5px 0;
+          transition: all 0.3s ease;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="display: contents">
+      <div class="page svelte-1sha3kq">
+        <header class="svelte-1sha3kq">
+          <p
+            class="logo svelte-1sha3kq"
+            data-svelte-h="svelte-1iroesu"
+            style="margin-top: 30px"
+          >
+            rafik Imad
+          </p>
+          <nav class="links svelte-1sha3kq" style="margin-top: 30px">
+            <a href="/" target="" class="svelte-1sha3kq active">Home</a>
+            <a href="/contact.html" target="" class="svelte-1sha3kq btn"
+              >Contact</a
+            >
+          </nav>
+          <button class="burger svelte-1sha3kq">
+            <div class="bar-1 svelte-1sha3kq" style="margin-top: -1px"></div>
+            <div class="bar-2 svelte-1sha3kq" style="margin-top: -0px"></div>
+          </button>
+        </header>
+
+        <section class="hero svelte-1ls5zoa">
+          <div class="scroll svelte-1ls5zoa">
+            <div class="loop-slider svelte-12qwll2" style="--duration: 27708ms">
+              <div class="inner svelte-12qwll2">
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/2.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/4.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/5.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/6.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/ALL MY FISH DIED.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/Best-Prison-Movie-Ever-1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/body 1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/body 2.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/body 4.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/Dad Reacts to Baby Keem - The Melodic Blue.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family @.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family w.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="loop-slider svelte-12qwll2" style="--duration: 24040ms">
+              <div class="inner svelte-12qwll2">
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/body 1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/body 2.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/body 4.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/Dad Reacts to Baby Keem - The Melodic Blue.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/body 1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/body 2.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/body 4.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/Dad Reacts to Baby Keem - The Melodic Blue.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family @.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family w.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family x.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family-1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="loop-slider svelte-12qwll2" style="--duration: 26617ms">
+              <div class="inner svelte-12qwll2">
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family x.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family-1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family-1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family-3.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/family-6.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/food 2.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/food 3.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/psd 1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/rap 1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/sport 2.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/thumbnail-2.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/vlog 1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="loop-slider svelte-12qwll2" style="--duration: 23421ms">
+              <div class="inner svelte-12qwll2">
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/food 3.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/psd 1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/rap 1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/sport 2.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/thumbnail-2.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/vlog 1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/2..webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/4.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/5.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/6.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/ALL MY FISH DIED.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+                <div class="tag svelte-12qwll2">
+                  <img
+                    src="assets/banner/Best-Prison-Movie-Ever-1.webp"
+                    alt="thumbnail"
+                    class="svelte-12qwll2"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fade svelte-1ls5zoa"></div>
+          <h1
+            class="svelte-1ls5zoa"
+            data-svelte-h="svelte-ilcmso"
+            style="opacity: 1"
+          >
+            Double Your Click-Through <br />
+            Rate with
+            <span class="svelte-1ls5zoa">Captivating </span> Thumbnails
+          </h1>
+          <div class="btns svelte-1ls5zoa" data-svelte-h="svelte-mlxn3d">
+            <a class="btn svelte-1ls5zoa" href="/contact.html" id="contact"
+              >Order Now</a
+            >
+          </div>
+        </section>
+        <section class="thumbnails svelte-1ls5zoa" id="thumbnails">
+          <h2
+            class="svelte-1ls5zoa"
+            data-svelte-h="svelte-hfn32p"
+            style="opacity: 1"
+          >
+            Here are some of the milestone<br />
+            <span class="svelte-1ls5zoa"> I've reached</span>
+          </h2>
+          <p class="svelte-1ls5zoa myPTag">
+            Check out my graphic design style through these thumbnails, each
+            giving you a peek into my creative world. They&#39;re bold,
+            detailed, and captivating, reflecting my love for visual
+            storytelling.
+          </p>
+          <div class="imgs svelte-1ls5zoa" style="opacity: 1">
+            <img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/1.jpg"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/2.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/3.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/4.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/5.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/6.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/7.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/8.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/9.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/10.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/11.jpg"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/12.jpg"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/13.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/14.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/15.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/16.jpg"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/17.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/18.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/19.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/20.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/21.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/22.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/23.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/24.jpg"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/25.png"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/26.jpg"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/27.jpg"
+              loading="lazy"
+              alt="thumbnail"
+            /><img
+              style="opacity: 1"
+              class="thumbnail svelte-1ls5zoa"
+              src="assets/28 thumnail/28.jpg"
+              loading="lazy"
+              alt="thumbnail"
+            />
+          </div>
+        </section>
+        <section class="gif-section svelte-1ls5zoa">
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+            "
+          >
+            <div class="col-md-6 gifHolder">
+              <img src="assets/Gif/1.gif" class="gifImage" alt="" />
+              <img src="assets/Gif/2.gif" class="gifImage" alt="" />
+            </div>
+            <div class="col-md-6 gifHolder">
+              <img src="assets/Gif/3.gif" class="gifImage" alt="" />
+              <img src="assets/Gif/4.gif" class="gifImage" alt="" />
+            </div>
+          </div>
+        </section>
+
+        <section class="why-section svelte-1ls5zoa">
+          <h2
+            class="svelte-1ls5zoa"
+            data-svelte-h="svelte-1p4dr1j"
+            style="opacity: 1"
+          >
+            Why Choose <span class="svelte-1ls5zoa">Rafik</span>
+          </h2>
+          <p
+            class="svelte-1ls5zoa myPTag"
+            style="color: #888; margin-top: 30px"
+          >
+            Still unsure about trusting us?
+          </p>
+          <p class="svelte-1ls5zoa myPTag" style="color: #888; margin-top: 8px">
+            So here's what sets us apart from the competition.
+          </p>
+
+          <div class="whySection">
+            <div class="why1" style="border-radius: 20px">
+              <h2
+                class="svelte-1ls5zoa"
+                data-svelte-h="svelte-1p4dr1j"
+                style="opacity: 1; text-align: left"
+              >
+                Rafik
+              </h2>
+              <div class="whypoint" style="margin-top: 42px">
+                <h5 style="color: white; font-size: 22px">
+                  Affordable Excellence
+                </h5>
+                <p style="color: #ddd; margin-top: 12px">
+                  I provide high-quality services at competitive rates, ensuring
+                  exceptional standards without straining your budget. My
+                  commitment to affordability does not come at the expense of
+                  quality.
+                </p>
+              </div>
+              <div class="whypoint" style="margin-top: 22px">
+                <h5 style="color: white; font-size: 22px">Swift Turnaround</h5>
+                <p style="color: #ddd; margin-top: 12px">
+                  Thanks to streamlined project management, I deliver fast
+                  results that meet even the tightest deadlines. Clients can
+                  rely on prompt service to address their urgent needs
+                  efficiently.
+                </p>
+              </div>
+              <div class="whypoint" style="margin-top: 22px">
+                <h5 style="color: white; font-size: 22px">
+                  Complete Transparency
+                </h5>
+                <p style="color: #ddd; margin-top: 12px">
+                  I prioritize clear and honest communication throughout the
+                  project. You will be kept informed at every step, with full
+                  visibility and control over the process, ensuring that there
+                  are no surprises.
+                </p>
+              </div>
+            </div>
+            <div class="why2" style="border-radius: 20px">
+              <h2
+                class="svelte-1ls5zoa"
+                data-svelte-h="svelte-1p4dr1j"
+                style="opacity: 1; color: #200103; text-align: left"
+              >
+                Freelance Websites
+              </h2>
+              <div class="whypoint" style="margin-top: 42px">
+                <h5 style="color: #200103; font-size: 22px">Additional Fees</h5>
+                <p style="color: #200103; margin-top: 12px">
+                  Many freelance platforms are known for their hidden costs or
+                  unexpected price increases, which can complicate clients'
+                  efforts to accurately forecast the total budget required for
+                  one or multiple thumbnails.
+                </p>
+              </div>
+              <div class="whypoint" style="margin-top: 22px">
+                <h5 style="color: #200103; font-size: 22px">
+                  Long Delivery Times
+                </h5>
+                <p style="color: #200103; margin-top: 12px">
+                  Freelancers frequently face challenges in meeting tight
+                  deadlines, particularly when juggling multiple projects
+                  concurrently. This can lead to extended delivery times that
+                  impact project timelines.
+                </p>
+              </div>
+              <div class="whypoint" style="margin-top: 22px">
+                <h5 style="color: #200103; font-size: 22px">
+                  Lack of Transparency
+                </h5>
+                <p style="color: #200103; margin-top: 12px">
+                  Freelancers often lack clarity regarding their processes,
+                  pricing, delivery schedules, and overall experience. This
+                  opacity can make it difficult for clients to fully understand
+                  the value and return on their investment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="thumbnails svelte-1ls5zoa">
+          <h2
+            class="svelte-1ls5zoa"
+            data-svelte-h="svelte-1p4dr1j"
+            style="opacity: 1"
+          >
+            What They Think About <span class="svelte-1ls5zoa">Rafik</span>
+          </h2>
+          <p class="svelte-1ls5zoa myPTag">reviews</p>
+          <div class="reviews svelte-1ls5zoa">
+            <div class="review svelte-1ls5zoa" style="opacity: 1">
+              <div
+                class="stars svelte-1ls5zoa"
+                data-svelte-h="svelte-1d9o48m"
+                style="opacity: 1"
+              >
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <p class="svelte-1ls5zoa">
+                &quot;Rafik is one of the most talented designers I've ever
+                worked with. His thumbnails are outstanding and have played a
+                key role in boosting my click-through rate. In addition to his
+                creative skills, he consistently meets deadlines and delivers
+                exceptional results. I highly recommend working with him.&quot;
+              </p>
+              <a
+                href="https://www.youtube.com/@Kolosus"
+                target="_blank"
+                rel="noopener"
+                noreferrer
+                class="profile svelte-1ls5zoa"
+                ><div class="pic svelte-1ls5zoa">
+                  <img
+                    src="assets/reviews/1.jpg"
+                    alt="Henry Hoops"
+                    class="svelte-1ls5zoa"
+                  />
+                </div>
+                <div class="infos svelte-1ls5zoa">
+                  <p class="svelte-1ls5zoa">Kolosus</p>
+                  <span class="svelte-1ls5zoa"
+                    >YouTuber · 41.8K Subscribers</span
+                  >
+                </div></a
+              >
+            </div>
+            <div class="review svelte-1ls5zoa" style="opacity: 1">
+              <div class="stars svelte-1ls5zoa" data-svelte-h="svelte-1d9o48m">
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <p class="svelte-1ls5zoa">
+                &quot;Rafik delivers a truly professional service, combining
+                creativity with an unwavering dedication to his work. What sets
+                him apart is his meticulous attention to detail—something that
+                many other designers often overlook. Honestly, I can't imagine
+                trusting anyone else to design my thumbnails.&quot;
+              </p>
+              <a
+                href="https://www.youtube.com/@iAmScruffyWolf"
+                target="_blank"
+                rel="noopener"
+                noreferrer
+                class="profile svelte-1ls5zoa"
+                ><div class="pic svelte-1ls5zoa">
+                  <img
+                    src="assets/reviews/2.jpg"
+                    alt="10X INCOME"
+                    class="svelte-1ls5zoa"
+                  />
+                </div>
+                <div class="infos svelte-1ls5zoa">
+                  <p class="svelte-1ls5zoa">iAmScruffyWolf</p>
+                  <span class="svelte-1ls5zoa"
+                    >YouTuber · 1.4K Subscribers</span
+                  >
+                </div></a
+              >
+            </div>
+            <div class="review svelte-1ls5zoa" style="opacity: 1">
+              <div class="stars svelte-1ls5zoa" data-svelte-h="svelte-1d9o48m">
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <p class="svelte-1ls5zoa">
+                &quot;Excellent service! The thumbnail was delivered in under
+                two hours. Rafik has been a game-changer for my channel—his
+                thumbnails are always on point and consistently draw in viewers.
+                I highly recommend working with him.&quot;
+              </p>
+              <a
+                href="https://www.youtube.com/@rafatatay1"
+                target="_blank"
+                rel="noopener"
+                noreferrer
+                class="profile svelte-1ls5zoa"
+                ><div class="pic svelte-1ls5zoa">
+                  <img
+                    src="assets/reviews/3.jpg"
+                    alt="Khormologia"
+                    class="svelte-1ls5zoa"
+                  />
+                </div>
+                <div class="infos svelte-1ls5zoa">
+                  <p class="svelte-1ls5zoa">rafatatay</p>
+                  <span class="svelte-1ls5zoa"
+                    >YouTuber · 267K Subscribers</span
+                  >
+                </div></a
+              >
+            </div>
+            <div class="review svelte-1ls5zoa" style="opacity: 1">
+              <div class="stars svelte-1ls5zoa" data-svelte-h="svelte-1d9o48m">
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <p class="svelte-1ls5zoa">
+                &quot;If you’re seeking a designer who is both highly skilled
+                and reliable, Rafik is the perfect choice. His swift turnaround
+                times and outstanding designs have significantly enhanced my
+                channel’s performance. Collaborating with him has been
+                transformative, and I wholeheartedly recommend his services to
+                others.&quot;
+              </p>
+              <a
+                href="https://www.youtube.com/@Hypertheory55"
+                target="_blank"
+                rel="noopener"
+                noreferrer
+                class="profile svelte-1ls5zoa"
+                ><div class="pic svelte-1ls5zoa">
+                  <img
+                    src="assets/reviews/4.jpg"
+                    alt="IFG"
+                    class="svelte-1ls5zoa"
+                  />
+                </div>
+                <div class="infos svelte-1ls5zoa">
+                  <p class="svelte-1ls5zoa">Hyper Theory</p>
+                  <span class="svelte-1ls5zoa"
+                    >YouTuber · 1.15K Subscribers</span
+                  >
+                </div></a
+              >
+            </div>
+            <div class="review svelte-1ls5zoa" style="opacity: 1">
+              <div class="stars svelte-1ls5zoa" data-svelte-h="svelte-1d9o48m">
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <p class="svelte-1ls5zoa">
+                &quot;Rafik’s creativity, combined with his reliable delivery,
+                has made a massive difference to my channel’s success. He
+                consistently provides eye-catching thumbnails that resonate with
+                my viewers, and his fast response time is a huge bonus. I can't
+                recommend him enough if you're looking for professional and
+                impactful designs.&quot;
+              </p>
+              <a
+                href="https://www.youtube.com/@hector_matias"
+                target="_blank"
+                rel="noopener"
+                noreferrer
+                class="profile svelte-1ls5zoa"
+                ><div class="pic svelte-1ls5zoa">
+                  <img
+                    src="assets/reviews/5.jpg"
+                    alt="Héctor Matías"
+                    class="svelte-1ls5zoa"
+                  />
+                </div>
+                <div class="infos svelte-1ls5zoa">
+                  <p class="svelte-1ls5zoa">Héctor Matías</p>
+                  <span class="svelte-1ls5zoa">YouTuber · 1K Subscribers</span>
+                </div></a
+              >
+            </div>
+            <div class="review svelte-1ls5zoa" style="opacity: 1">
+              <div class="stars svelte-1ls5zoa" data-svelte-h="svelte-1d9o48m">
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <p class="svelte-1ls5zoa">
+                &quot;Rafik is a standout designer—quick, precise, and
+                incredibly creative. His thumbnails have boosted my channel's
+                performance, and his attention to detail is unmatched. Highly
+                recommend!&quot;
+              </p>
+              <a
+                href="https://www.youtube.com/@yasserchanaa"
+                target="_blank"
+                rel="noopener"
+                noreferrer
+                class="profile svelte-1ls5zoa"
+                ><div class="pic svelte-1ls5zoa">
+                  <img
+                    src="assets/reviews/6.jpg"
+                    alt="Joren Wouters"
+                    class="svelte-1ls5zoa"
+                  />
+                </div>
+                <div class="infos svelte-1ls5zoa">
+                  <p class="svelte-1ls5zoa">Yasser Chanaa</p>
+                  <span class="svelte-1ls5zoa"
+                    >YouTuber · 361K Subscribers</span
+                  >
+                </div></a
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="thumbnails svelte-1ls5zoa">
+          <h2
+            class="svelte-1ls5zoa"
+            data-svelte-h="svelte-1k35x0m"
+            style="opacity: 1"
+          >
+            FAQ
+          </h2>
+          <p
+            style="width: auto"
+            class="svelte-1ls5zoa"
+            data-svelte-h="svelte-xlxckt"
+          >
+            You got questions, I got answers!
+          </p>
+          <div class="questions">
+            <div class="question">
+              <div class="top">
+                <h3>Ready to Get Started?</h3>
+                <div class="icon">+</div>
+              </div>
+              <p class="info">
+                Simply click the 'Order Now' button or reach out to me via
+                email, and we'll begin working together right away. Let’s bring
+                your vision to life!
+              </p>
+            </div>
+            <div class="question">
+              <div class="top">
+                <h3>What is the delivery time?</h3>
+                <div class="icon">+</div>
+              </div>
+              <p class="info">
+                Typically, I deliver within 24 hours. However, if you have an
+                urgent request, we can discuss the process and expedite it to
+                meet your timeline.
+              </p>
+            </div>
+            <div class="question">
+              <div class="top">
+                <h3>What do you need from me to create a thumbnail?</h3>
+                <div class="icon">+</div>
+              </div>
+              <p class="info">
+                All I require are the key details about your video, including
+                the topic, title, and any relevant images of you. This helps me
+                create a design that aligns perfectly with your content.
+              </p>
+            </div>
+            <div class="question">
+              <div class="top">
+                <h3>What if I don’t like the thumbnail you created?</h3>
+                <div class="icon">+</div>
+              </div>
+              <p class="info">
+                This situation is rare because I always present you with a
+                detailed concept before finalizing the design. But rest assured,
+                you have unlimited revision requests to guarantee your complete
+                satisfaction.
+              </p>
+            </div>
+            <div class="question">
+              <div class="top">
+                <h3>What file formats do you offer?</h3>
+                <div class="icon">+</div>
+              </div>
+              <p class="info">
+                I deliver thumbnails in JPG format, with Ultra HD resolution
+                (1920 x 1080 pixels) and a file size under 2 MB.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="thumbnails svelte-1ls5zoa">
+          <h2
+            class="svelte-1ls5zoa"
+            data-svelte-h="svelte-18h9zxm"
+            style="opacity: 1"
+          >
+            Order Now
+          </h2>
+          <form method="post" class="svelte-1ls5zoa">
+            <p class="message svelte-1ls5zoa"></p>
+            <div class="infos svelte-1ls5zoa">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value=""
+                class="svelte-1ls5zoa"
+              />
+              <input
+                type="text"
+                name="email"
+                placeholder="Your Email"
+                value=""
+                class="svelte-1ls5zoa"
+              />
+            </div>
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              class="svelte-1ls5zoa"
+            ></textarea>
+            <button class="svelte-1ls5zoa" data-svelte-h="svelte-1dut0so">
+              Send
+            </button>
+          </form>
+        </section>
+
+        <footer class="svelte-1sha3kq" data-svelte-h="svelte-1s0a9ix">
+          <!-- <a
+            href="tel:+21629763888"
+            class="svelte-1sha3kq"
+            style="opacity: 1; margin-top: -30px"
+            >(+216) 29 763 888</a
+          > -->
+          <a
+            style="opacity: 1; margin-top: -30px"
+            href="/cdn-cgi/l/email-protection#5b393a3f3228283a282832753d293e3e373a35383e1b3c363a323775383436"
+            class="svelte-1sha3kq"
+            >contact@rafikimad.com
+          </a>
+          <nav class="links svelte-1sha3kq">
+            <a
+              style="opacity: 1; margin-top: -30px"
+              target="_blank"
+              rel="noopener"
+              noreferrer
+              title="Twitter account"
+              href="https://x.com/rafikimadd"
+              class="svelte-1sha3kq"
+              ><i class="ri-twitter-x-line svelte-1sha3kq"></i
+            ></a>
+            <!-- <a
+              style="opacity: 1; margin-top: -30px"
+              target="_blank"
+              rel="noopener"
+              noreferrer
+              title="Youtube Channel"
+              href="https://www.youtube.com/@ImadDesigns"
+              class="svelte-1sha3kq"
+              ><i class="ri-youtube-line svelte-1sha3kq"></i
+            ></a> -->
+          </nav>
+        </footer>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const burger = document.querySelector(".burger");
+          const links = document.querySelector(".links");
+
+          burger.addEventListener("click", function () {
+            links.classList.toggle("active"); // Toggle the 'active' class
+          });
+        });
+      </script>
+      <script>
+        document.querySelectorAll(".question").forEach((question) => {
+          question.addEventListener("click", () => {
+            // Hide all other answers and reset icons
+            document.querySelectorAll(".question").forEach((q) => {
+              if (q !== question) {
+                q.classList.remove("active");
+                q.querySelector(".icon").textContent = "+"; // Reset icon to "+"
+              }
+            });
+
+            // Toggle the current answer
+            const icon = question.querySelector(".icon");
+            if (question.classList.contains("active")) {
+              question.classList.remove("active");
+              icon.textContent = "+"; // Set icon back to "+"
+            } else {
+              question.classList.add("active");
+              icon.textContent = "-"; // Set icon to "-"
+            }
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>

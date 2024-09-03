@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:image" content="./cover.png" />
+    <meta property="twitter:image" content="./cover.png" />
+    <link rel="apple-touch-icon" href="./logo.png" />
+    <link href="assets/css/0.1S49Nrdr.css" rel="stylesheet" />
+    <link href="assets/css/assets/4.8mOfhhvE.css" rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+      * {
+        font-family: "Montserrat", sans-serif;
+        text-decoration: none;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline: none;
+        border: none;
+        background: none;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        width: 100%;
+        height: 100svh;
+        background-color: #200103;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      ::-webkit-scrollbar {
+        width: 2px;
+        height: 3px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #ff7517;
+      }
+
+      .thumbnail,
+      .review,
+      h1,
+      h2,
+      .question,
+      footer a {
+        transform: translateY(1rem);
+        opacity: 1;
+        transition: 0.8s;
+      }
+
+      .thumbnail.show,
+      .review.show,
+      h1.show,
+      h2.show,
+      .question.show,
+      footer.show a {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+      header .logo,
+      header a {
+        transform: translateY(-1rem);
+        transition: 0.5s;
+        opacity: 1;
+      }
+
+      .logo.show,
+      header a.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      footer.show nav a:first-child {
+        transition: 0.8s 0.6s;
+      }
+
+      footer.show nav a:nth-child(2) {
+        transition: 0.8s 0.4s;
+      }
+
+      footer.show nav a:nth-child(3) {
+        transition: 0.8s 0.2s;
+      }
+
+      footer.show nav a:nth-child(4) {
+        transition: 0.8s 0s;
+      }
+      @media (max-width: 700px) {
+        header a {
+          transform: translateY(1rem);
+        }
+        header a.show {
+          transform: translateY(0rem);
+        }
+        header a:first-child {
+          transition: 0.8s 0.4s;
+        }
+
+        header a:nth-child(2) {
+          transition: 0.8s 0.3s;
+        }
+
+        header a:nth-child(3) {
+          transition: 0.8s 0.2s;
+        }
+        header a:nth-child(4) {
+          transition: 0.8s 0.1s;
+        }
+        header a:nth-child(4) {
+          transition: 0.8s 0s;
+        }
+      }
+    </style>
+    <style>
+      @media screen and (max-width: 700px) {
+        .links {
+          display: none; /* Initially hidden */
+          opacity: 0;
+          transform: translateY(-10px);
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .links.active {
+          display: block; /* Shown when active */
+          opacity: 1;
+          transform: translateY(0);
+          margin-top: -0px !important;
+        }
+
+        .burger {
+          cursor: pointer;
+          background: none;
+          border: none;
+          outline: none;
+          padding: 10px;
+        }
+
+        .burger .bar-1,
+        .burger .bar-2 {
+          width: 25px;
+          height: 3px;
+          background-color: #333;
+          margin: 5px 0;
+          transition: all 0.3s ease;
+        }
+      }
+    </style>
+  </head>
+
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">
+      <div class="page svelte-1sha3kq">
+        <header class="svelte-1sha3kq">
+          <p
+            class="logo svelte-1sha3kq"
+            data-svelte-h="svelte-1iroesu"
+            style="margin-top: 30px"
+          >
+            Rafiq Imad
+          </p>
+          <nav class="links svelte-1sha3kq" style="margin-top: 30px">
+            <a href="/" target="" class="svelte-1sha3kq active">Home</a>
+            <a href="/contact.html" target="" class="svelte-1sha3kq btn"
+              >Contact</a
+            >
+          </nav>
+          <button class="burger svelte-1sha3kq">
+            <div class="bar-1 svelte-1sha3kq" style="margin-top: -1px;"></div>
+            <div class="bar-2 svelte-1sha3kq" style="margin-top: -0px;"></div>
+          </button>
+        </header>
+        <section class="thumbnails svelte-125qhb8">
+          <h1 class="svelte-125qhb8" data-svelte-h="svelte-1o610zf">
+            Get in Touch!
+          </h1>
+          <p class="svelte-125qhb8" data-svelte-h="svelte-1o3210n">
+            Have a design idea or a question? I&#39;m just an email away! Reach
+            out for any thumbnail design needs or to discuss your next project.
+            Let’s create something amazing together!
+          </p>
+          <form
+            method="post"
+            class="svelte-125qhb8"
+            data-svelte-h="svelte-sz74fv"
+          >
+            <div class="infos svelte-125qhb8">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                class="svelte-125qhb8"
+              />
+              <input
+                type="text"
+                name="email"
+                placeholder="Your Email"
+                class="svelte-125qhb8"
+              />
+            </div>
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              class="svelte-125qhb8"
+            ></textarea>
+            <button class="svelte-125qhb8">Send</button>
+          </form>
+        </section>
+        <!-- <footer class="svelte-1sha3kq" data-svelte-h="svelte-1s0a9ix">
+          <a href="tel:+21629763888" class="svelte-1sha3kq"
+            >(+216) 29 763 888</a
+          >
+          <a
+            href="/cdn-cgi/l/email-protection#f89a999c918b8b998b8b91d69e8a9d9d9499969b9db89f95999194d69b9795"
+            class="svelte-1sha3kq"
+            ><span
+              class="__cf_email__"
+              data-cfemail="294b484d405a5a485a5a40074f5b4c4c4548474a4c694e44484045074a4644"
+              >[email&#160;protected]</span
+            ></a
+          >
+          <nav class="links svelte-1sha3kq">
+            <a
+              target="_blank"
+              rel="noopener"
+              noreferrer
+              title="Twitter account"
+              href="https://twitter.com/BadisDesigns"
+              class="svelte-1sha3kq"
+              ><i class="ri-twitter-x-line svelte-1sha3kq"></i
+            ></a>
+            <a
+              target="_blank"
+              rel="noopener"
+              noreferrer
+              title="Youtube Channel"
+              href="https://www.youtube.com/@BadisDesigns"
+              class="svelte-1sha3kq"
+              ><i class="ri-youtube-line svelte-1sha3kq"></i
+            ></a>
+          </nav>
+        </footer> -->
+      </div>
+
+      <script
+        data-cfasync="false"
+        src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+      ></script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const burger = document.querySelector(".burger");
+          const links = document.querySelector(".links");
+
+          burger.addEventListener("click", function () {
+            links.classList.toggle("active"); // Toggle the 'active' class
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
