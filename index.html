@@ -302,7 +302,7 @@
             data-svelte-h="svelte-1iroesu"
             style="margin-top: 30px"
           >
-            Rafik Imad 
+            Rafik Imad
           </p>
           <nav class="links svelte-1sha3kq" style="margin-top: 30px">
             <a href="/" target="" class="svelte-1sha3kq active">Home</a>
@@ -1378,21 +1378,19 @@
           >
             Order Now
           </h2>
-          <form method="post" class="svelte-1ls5zoa">
+          <form id="contact-form" class="svelte-1ls5zoa">
             <p class="message svelte-1ls5zoa"></p>
             <div class="infos svelte-1ls5zoa">
               <input
                 type="text"
                 name="name"
                 placeholder="Your Name"
-                value=""
                 class="svelte-1ls5zoa"
               />
               <input
                 type="text"
                 name="email"
                 placeholder="Your Email"
-                value=""
                 class="svelte-1ls5zoa"
               />
             </div>
@@ -1446,39 +1444,77 @@
           </nav>
         </footer>
       </div>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const burger = document.querySelector(".burger");
-          const links = document.querySelector(".links");
+    </div>
 
-          burger.addEventListener("click", function () {
-            links.classList.toggle("active"); // Toggle the 'active' class
-          });
-        });
-      </script>
-      <script>
-        document.querySelectorAll(".question").forEach((question) => {
-          question.addEventListener("click", () => {
-            // Hide all other answers and reset icons
-            document.querySelectorAll(".question").forEach((q) => {
-              if (q !== question) {
-                q.classList.remove("active");
-                q.querySelector(".icon").textContent = "+"; // Reset icon to "+"
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+      (function () {
+        // EmailJS ka userID
+        emailjs.init("slwOsQ4_RTxy01egx");
+      })();
+
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Form data ko read karo aur EmailJS template parameters me pass karo
+          var templateParams = {
+            from_name: document.querySelector('input[name="name"]').value,
+            user_email: document.querySelector('input[name="email"]').value,
+            message: document.querySelector('textarea[name="message"]').value,
+          };
+
+          // EmailJS ka send function call karo
+          emailjs
+            .send("service_2p1u83i", "template_rvoytro", templateParams)
+            .then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                document.querySelector(".message").innerHTML =
+                  "Message sent successfully!";
+              },
+              function (error) {
+                console.log("FAILED...", error);
+                document.querySelector(".message").innerHTML =
+                  "Failed to send the message.";
               }
-            });
+            );
+        });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const burger = document.querySelector(".burger");
+        const links = document.querySelector(".links");
 
-            // Toggle the current answer
-            const icon = question.querySelector(".icon");
-            if (question.classList.contains("active")) {
-              question.classList.remove("active");
-              icon.textContent = "+"; // Set icon back to "+"
-            } else {
-              question.classList.add("active");
-              icon.textContent = "-"; // Set icon to "-"
+        burger.addEventListener("click", function () {
+          links.classList.toggle("active"); // Toggle the 'active' class
+        });
+      });
+    </script>
+    <script>
+      document.querySelectorAll(".question").forEach((question) => {
+        question.addEventListener("click", () => {
+          // Hide all other answers and reset icons
+          document.querySelectorAll(".question").forEach((q) => {
+            if (q !== question) {
+              q.classList.remove("active");
+              q.querySelector(".icon").textContent = "+"; // Reset icon to "+"
             }
           });
+
+          // Toggle the current answer
+          const icon = question.querySelector(".icon");
+          if (question.classList.contains("active")) {
+            question.classList.remove("active");
+            icon.textContent = "+"; // Set icon back to "+"
+          } else {
+            question.classList.add("active");
+            icon.textContent = "-"; // Set icon to "-"
+          }
         });
-      </script>
-    </div>
+      });
+    </script>
   </body>
 </html>
