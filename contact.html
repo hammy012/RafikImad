@@ -10,8 +10,12 @@
     <link rel="apple-touch-icon" href="./logo.png" />
     <link href="assets/css/0.1S49Nrdr.css" rel="stylesheet" />
     <link href="assets/css/4.8mOfhhvE.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-    
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Contact</title>
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -170,7 +174,7 @@
             data-svelte-h="svelte-1iroesu"
             style="margin-top: 30px"
           >
-          Rafik Imad 
+            Rafik Imad
           </p>
           <nav class="links svelte-1sha3kq" style="margin-top: 30px">
             <a href="/" target="" class="svelte-1sha3kq active">Home</a>
@@ -179,8 +183,8 @@
             >
           </nav>
           <button class="burger svelte-1sha3kq">
-            <div class="bar-1 svelte-1sha3kq" style="margin-top: -1px;"></div>
-            <div class="bar-2 svelte-1sha3kq" style="margin-top: -0px;"></div>
+            <div class="bar-1 svelte-1sha3kq" style="margin-top: -1px"></div>
+            <div class="bar-2 svelte-1sha3kq" style="margin-top: -0px"></div>
           </button>
         </header>
         <section class="thumbnails svelte-125qhb8">
@@ -192,11 +196,8 @@
             out for any thumbnail design needs or to discuss your next project.
             Let’s create something amazing together!
           </p>
-          <form
-            method="post"
-            class="svelte-125qhb8"
-            data-svelte-h="svelte-sz74fv"
-          >
+          <form id="contact-form" class="svelte-125qhb8">
+            <p class="message" style="text-align: center; color: green;"></p> <!-- Add this line to display success/error messages -->
             <div class="infos svelte-125qhb8">
               <input
                 type="text"
@@ -205,7 +206,7 @@
                 class="svelte-125qhb8"
               />
               <input
-                type="text"
+                type="email"
                 name="email"
                 placeholder="Your Email"
                 class="svelte-125qhb8"
@@ -216,7 +217,9 @@
               placeholder="Your Message"
               class="svelte-125qhb8"
             ></textarea>
-            <button class="svelte-125qhb8">Send</button>
+            <button class="svelte-125qhb8" data-svelte-h="svelte-1dut0so">
+              Send
+            </button>
           </form>
         </section>
 
@@ -256,46 +259,48 @@
             ></a>
           </nav>
         </footer>
-        <!-- <footer class="svelte-1sha3kq" data-svelte-h="svelte-1s0a9ix">
-          <a href="tel:+21629763888" class="svelte-1sha3kq"
-            >(+216) 29 763 888</a
-          >
-          <a
-            href="/cdn-cgi/l/email-protection#f89a999c918b8b998b8b91d69e8a9d9d9499969b9db89f95999194d69b9795"
-            class="svelte-1sha3kq"
-            ><span
-              class="__cf_email__"
-              data-cfemail="294b484d405a5a485a5a40074f5b4c4c4548474a4c694e44484045074a4644"
-              >[email&#160;protected]</span
-            ></a
-          >
-          <nav class="links svelte-1sha3kq">
-            <a
-              target="_blank"
-              rel="noopener"
-              noreferrer
-              title="Twitter account"
-              href="https://twitter.com/BadisDesigns"
-              class="svelte-1sha3kq"
-              ><i class="ri-twitter-x-line svelte-1sha3kq"></i
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener"
-              noreferrer
-              title="Youtube Channel"
-              href="https://www.youtube.com/@BadisDesigns"
-              class="svelte-1sha3kq"
-              ><i class="ri-youtube-line svelte-1sha3kq"></i
-            ></a>
-          </nav>
-        </footer> -->
       </div>
 
-      <script
-        data-cfasync="false"
-        src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-      ></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+      <script type="text/javascript">
+        (function () {
+          // EmailJS ka userID
+          emailjs.init("slwOsQ4_RTxy01egx");
+        })();
+
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Form data ko read karo aur EmailJS template parameters me pass karo
+            var templateParams = {
+              from_name: document.querySelector('input[name="name"]').value,
+              user_email: document.querySelector('input[name="email"]').value,
+              message: document.querySelector('textarea[name="message"]').value,
+            };
+
+            // EmailJS ka send function call karo
+            emailjs
+              .send("service_2p1u83i", "template_rvoytro", templateParams)
+              .then(
+                function (response) {
+                  console.log("SUCCESS!", response.status, response.text);
+                  document.querySelector(".message").innerHTML =
+                    "Message sent successfully!";
+                },
+                function (error) {
+                  console.log("FAILED...", error);
+                  document.querySelector(".message").innerHTML =
+                    "Failed to send the message.";
+                }
+              );
+          });
+      </script>
+
+
       <script>
         document.addEventListener("DOMContentLoaded", function () {
           const burger = document.querySelector(".burger");
